@@ -9,4 +9,4 @@ export default function App() {
       <ExpoStatusBar style="auto" />
     </>
   );
-  }
+}
