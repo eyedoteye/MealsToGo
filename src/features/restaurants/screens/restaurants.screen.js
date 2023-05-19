@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components/native";
 import {
   SafeAreaView,
   View,
@@ -6,35 +7,35 @@ import {
   Platform,
   StatusBar,
 } from "react-native";
-import { Searchbar } from "react-native-paper";
+import { List, Searchbar } from "react-native-paper";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
-
-export const RestaurantsScreen = () => (
-  <SafeAreaView style={styles.root}>
-    <View style={styles.searchContainer}>
-      <Searchbar placeholder="Search" />
-    </View>
-    <View style={styles.listContainer}>
-      <RestaurantInfoCard />
-    </View>
-  </SafeAreaView>
-);
 
 const isAndroid = Platform.OS === "android";
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    marginTop: isAndroid ? StatusBar.currentHeight : 0,
-  },
-  searchContainer: {
-    backgroundColor: "green",
-    padding: 10,
-  },
-  listContainer: {
-    backgroundColor: "blue",
-    flex: 1,
-    flexGrow: 1,
-    padding: 10,
-  },
-});
+const CrossPlatformSafeAreaView = styled(SafeAreaView)`
+  flex: 1;
+  margin-top: ${isAndroid ? StatusBar.currentHeight : 0}px;
+`;
+
+const SearchbarContainer = styled(View)`
+  background-color: green;
+  padding: 10px;
+`;
+
+const ListContainer = styled(View)`
+  background-color: blue;
+  flex: 1;
+  flex-grow: 1;
+  padding: 10px;
+`;
+
+export const RestaurantsScreen = () => (
+  <CrossPlatformSafeAreaView>
+    <SearchbarContainer>
+      <Searchbar placeholder="Search" />
+    </SearchbarContainer>
+    <ListContainer>
+      <RestaurantInfoCard />
+    </ListContainer>
+  </CrossPlatformSafeAreaView>
+);
