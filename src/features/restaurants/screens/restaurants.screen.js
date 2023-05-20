@@ -18,15 +18,15 @@ const CrossPlatformSafeAreaView = styled(SafeAreaView)`
 `;
 
 const SearchbarContainer = styled(View)`
-  background-color: green;
-  padding: 10px;
+  background-color: ${(props) => props.theme.colors.bg.secondary};
+  padding: ${(props) => props.theme.space[2]};
 `;
 
 const ListContainer = styled(View)`
-  background-color: blue;
+  background-color: ${(props) => props.theme.colors.bg.primary};
   flex: 1;
   flex-grow: 1;
-  padding: 10px;
+  padding: ${(props) => props.theme.space[2]};
 `;
 
 export const RestaurantsScreen = () => (

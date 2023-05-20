@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components/native";
-import { StyleSheet } from "react-native";
+// import { StyleSheet } from "react-native";
 import { Card } from "react-native-paper";
 
 const Cover = styled(Card.Cover)`
-  padding: 10px;
+  padding: ${(props) => props.theme.space[2]};
+`;
+
+const Title = styled.Text`
+  color: ${(props) => props.theme.colors.text.primary};
+  padding: ${(props) => props.theme.space[2]};
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -20,14 +25,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   return (
     <Card>
       <Cover source={{ uri: photos[0] }} />
-      <Card.Title title={name} titleStyle={styles.title} />
+      <Title>{name}</Title>
     </Card>
   );
 };
-
-// Card.Title needs to have its style set through titleStyle.
-const styles = StyleSheet.create({
-  title: {
-    color: "blue",
-  },
-});
