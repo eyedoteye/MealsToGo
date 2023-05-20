@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 
-import { SpacerSmall } from "../../../components/spacer/spacer";
+import { Spacer } from "../../../components/spacer/spacer";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 
@@ -77,9 +77,9 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         </Rating>
         <MiscContainer>
           <Icon source={{ uri: icon }} />
-          <SpacerSmall />
+          <Spacer direction="left" size="medium" />
           {isOpenNow && <Open xml={open} />}
-          <SpacerSmall />
+          <Spacer direction="left" size="medium" />
           {isClosedTemporarily && <ClosedText>CLOSED TEMPORARILY</ClosedText>}
         </MiscContainer>
         <Address>{address}</Address>
