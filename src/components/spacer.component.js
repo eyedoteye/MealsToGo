@@ -1,9 +1,4 @@
-import React from "react";
 import styled from "styled-components/native";
-
-export const SpacerSmall = styled.View`
-  padding-left: ${(props) => props.theme.space[2]};
-`;
 
 const sizeVariant = {
   small: 1,
@@ -12,10 +7,10 @@ const sizeVariant = {
 };
 
 const directionVariant = {
-  top: "marginTop",
-  left: "marginLeft",
-  bottom: "marginBottom",
-  right: "marginRight",
+  top: "paddingTop",
+  left: "paddingLeft",
+  bottom: "paddingBottom",
+  right: "paddingRight",
 };
 
 const getVariant = (position, size, theme) => {
