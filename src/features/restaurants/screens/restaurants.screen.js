@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components/native";
-import { SafeAreaView, View, Platform, StatusBar, FlatList } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  Platform,
+  StatusBar,
+  FlatList,
+} from "react-native";
 import { Searchbar } from "react-native-paper";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { Spacer } from "../../../components/spacer.component"
@@ -14,13 +20,6 @@ const CrossPlatformSafeAreaView = styled(SafeAreaView)`
 
 const SearchbarContainer = styled(View)`
   background-color: ${(props) => props.theme.colors.bg.secondary};
-  padding: ${(props) => props.theme.space[2]};
-`;
-
-const ListContainer = styled(View)`
-  background-color: ${(props) => props.theme.colors.bg.primary};
-  flex: 1;
-  flex-grow: 1;
   padding: ${(props) => props.theme.space[2]};
 `;
 
