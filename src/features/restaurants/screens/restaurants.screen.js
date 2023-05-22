@@ -1,22 +1,10 @@
 import React from "react";
 import styled from "styled-components/native";
-import {
-  SafeAreaView,
-  View,
-  Platform,
-  StatusBar,
-  FlatList,
-} from "react-native";
+import { View, FlatList } from "react-native";
 import { Searchbar } from "react-native-paper";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
-import { Spacer } from "../../../components/spacer.component"
-
-const isAndroid = Platform.OS === "android";
-
-const CrossPlatformSafeAreaView = styled(SafeAreaView)`
-  flex: 1;
-  margin-top: ${isAndroid ? StatusBar.currentHeight : 0}px;
-`;
+import { Spacer } from "../../../components/spacer.component";
+import { CrossPlatformSafeAreaView } from "../../../components/crossPlatformSafeAreaView.component";
 
 const SearchbarContainer = styled(View)`
   background-color: ${(props) => props.theme.colors.bg.secondary};
