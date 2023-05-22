@@ -1,14 +1,9 @@
 import React from "react";
 import styled from "styled-components/native";
-import {
-  SafeAreaView,
-  View,
-  StyleSheet,
-  Platform,
-  StatusBar,
-} from "react-native";
-import { List, Searchbar } from "react-native-paper";
+import { SafeAreaView, View, Platform, StatusBar, FlatList } from "react-native";
+import { Searchbar } from "react-native-paper";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
+import { Spacer } from "../../../components/spacer.component"
 
 const isAndroid = Platform.OS === "android";
 
@@ -29,13 +24,35 @@ const ListContainer = styled(View)`
   padding: ${(props) => props.theme.space[2]};
 `;
 
+const RestaurantList = styled(FlatList).attrs({
+  contentContainerStyle: {
+    padding: 16,
+  },
+})``;
+
 export const RestaurantsScreen = () => (
   <CrossPlatformSafeAreaView>
     <SearchbarContainer>
       <Searchbar placeholder="Search" />
     </SearchbarContainer>
-    <ListContainer>
-      <RestaurantInfoCard />
-    </ListContainer>
+    <RestaurantList
+      data={[
+        { name: 1 },
+        { name: 2 },
+        { name: 3 },
+        { name: 4 },
+        { name: 5 },
+        { name: 6 },
+        { name: 7 },
+        { name: 8 },
+      ]}
+      renderItem={() => (
+        <>
+          <RestaurantInfoCard />
+          <Spacer direction="top" size="large" />
+        </>
+      )}
+      keyExtractor={(item) => item.name}
+    />
   </CrossPlatformSafeAreaView>
 );
