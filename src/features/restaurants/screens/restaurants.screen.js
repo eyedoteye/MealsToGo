@@ -37,7 +37,7 @@ export const RestaurantsScreen = () => {
       </SearchbarContainer>
       {isLoading && (
         <LoadingContainer>
-          <ActivityIndicator size={50} animating={true} />
+          <Loading size={50} animating={true} />
         </LoadingContainer>
       )}
       <RestaurantList
