@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/infrastucture/theme";
 import { RestaurantsContextProvider } from "./src/services/restaurant/restaurants.context";
 import { LocationContextProvider } from "./src/services/location/location.context";
-import { AppNavigator } from "./src/infrastucture/navigation/app.navigator";
+import { Navigation } from "./src/infrastucture/navigation";
 
 import {
   useFonts as useOswald,
@@ -30,7 +30,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <LocationContextProvider>
           <RestaurantsContextProvider>
-            <AppNavigator />
+            <Navigation />
           </RestaurantsContextProvider>
         </LocationContextProvider>
       </ThemeProvider>
