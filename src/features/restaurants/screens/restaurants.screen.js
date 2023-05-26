@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components/native";
-import { View, FlatList } from "react-native";
+import { View, FlatList, Pressable } from "react-native";
 import { ActivityIndicator } from "react-native-paper";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { Spacer } from "../../../components/spacer.component";
@@ -24,8 +24,9 @@ const Loading = styled(ActivityIndicator)`
   margin-left: -25px;
 `;
 
-export const RestaurantsScreen = () => {
+export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
+  console.log(navigation);
   return (
     <CrossPlatformSafeAreaView>
       <Search />
@@ -39,7 +40,20 @@ export const RestaurantsScreen = () => {
         renderItem={({ item }) => {
           return (
             <>
-              <RestaurantInfoCard restaurant={item} />
+              <Pressable
+                onPress={() =>
+                  navigation.navigate("RestaurantDetail", {
+                    restaurant: item,
+                  })
+                }
+                style={({ pressed }) => [
+                  {
+                    opacity: pressed ? 0.5 : 1,
+                  },
+                ]}
+              >
+                <RestaurantInfoCard restaurant={item} />
+              </Pressable>
               <Spacer direction="top" size="large" />
             </>
           );
