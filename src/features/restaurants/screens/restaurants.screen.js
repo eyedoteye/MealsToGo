@@ -26,7 +26,7 @@ const Loading = styled(ActivityIndicator)`
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
-  console.log(navigation);
+
   return (
     <CrossPlatformSafeAreaView>
       <Search />

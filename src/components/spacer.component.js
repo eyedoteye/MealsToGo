@@ -17,7 +17,6 @@ const getVariant = (position, size, theme) => {
   const str = `${directionVariant[position]}:${
     theme.space[sizeVariant[size]]
   };`;
-  // console.log(str);
   return str;
 };
 

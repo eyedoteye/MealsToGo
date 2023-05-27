@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components/native";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { RestaurantsNavigator } from "./restaurants.navigator";
-import MapView from "react-native-maps";
+import { MapScreen } from "../../features/map/screens/map.screen";
+import { CrossPlatformSafeAreaView } from "../../components/crossPlatformSafeAreaView.component";
 
 const TAB_ICON = {
   Restaurants: "restaurant",
@@ -30,24 +31,9 @@ const createScreenOptions = ({ route }) => {
 };
 
 const SettingsScreen = () => (
-  <View>
-    <Text>Settings!</Text>
-  </View>
-);
-
-const MapContainer = styled.View`
-  flex: 1;
-`;
-
-const Map = styled(MapView)`
-  width: 100%;
-  height: 100%;
-`;
-
-const MapScreen = () => (
-  <MapContainer>
-    <Map />
-  </MapContainer>
+  <CrossPlatformSafeAreaView>
+    <Text>Settings</Text>
+  </CrossPlatformSafeAreaView>
 );
 
 const Tab = createBottomTabNavigator();
